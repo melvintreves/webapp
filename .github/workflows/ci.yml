@@ -90,3 +90,14 @@ jobs:
           image-ref: 'my-app:${{ github.sha }}'
           severity: 'CRITICAL'
           exit-code: '1'
+   # 6. Gitleaks - scan de secrets dans le code
+  secrets-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Scan des secrets avec Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
