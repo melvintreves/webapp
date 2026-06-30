@@ -89,4 +89,4 @@ jobs:
         with:
           image-ref: 'my-app:${{ github.sha }}'
           severity: 'CRITICAL'
-          exit-code: '1'*
+          exit-code: '1'
